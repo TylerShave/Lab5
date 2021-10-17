@@ -16,6 +16,6 @@
         
         <h3>Hello ${user}</h3>
         
-        <a href="/WEB-INF/login.jsp" onclick="logout()">Log out</a>
+        <a href="/WEB-INF/login.jsp">Log out</a>
     </body>
 </html>

@@ -81,6 +81,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        session = request.getSession();
+        
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         
@@ -98,12 +100,8 @@ public class LoginServlet extends HttpServlet {
                 // validation: if the parameters don't exist or are empty, show the first page again.
         if(loginStatus != null){
         session.setAttribute("user", userName);
+        getServletContext().getRequestDispatcher("/WEB-INF/home.jsp");
         }
-    }
-    
-    protected void logout(){
-    session.invalidate();
-    request.setAttribute("message", "Logged out Successfully.");
     }
 
     /**
